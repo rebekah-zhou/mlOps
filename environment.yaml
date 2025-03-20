@@ -1,0 +1,12 @@
+name: mlops
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - numpy=1.26.4
+  - pandas=2.2.2
+  - scikit-learn=1.5.1
+  - pip
+  - pip:
+      - mlflow==2.15.1
