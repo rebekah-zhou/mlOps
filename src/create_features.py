@@ -6,6 +6,10 @@ from sklearn.compose import ColumnTransformer, make_column_selector
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.feature_selection import SelectPercentile, chi2
+import yaml
+
+params = yaml.safe_load(open("params.yaml"))["features"]
+chi2percentile = params["chi2percentile"]
 
 col_names = ['age', 'workclass', 'fnlwgt', 'education', 'education-num', 'marital-status', 
 'occupation', 'relationship', 'race', 'sex', 'capital-gain', 'capital-loss', 'hours-per-week', 'native-country', 'y']
@@ -40,7 +44,7 @@ numeric_transformer = Pipeline(
 categorical_transformer = Pipeline(
     steps=[
         ("encoder", OneHotEncoder(handle_unknown="ignore")),
-        ("selector", SelectPercentile(chi2, percentile=50)),
+        ("selector", SelectPercentile(chi2, percentile=chi2percentile)),
     ]
 )
 preprocessor = ColumnTransformer(

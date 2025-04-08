@@ -13,8 +13,8 @@ stages:
       size: 2003132
     - path: src/create_features.py
       hash: md5
-      md5: b93aea27ba45f8b24bdd52928f1f2b99
-      size: 2564
+      md5: 743df2e53aba70f18388ebb71697a906
+      size: 2688
     outs:
     - path: data/pipeline.pkl
       hash: md5
