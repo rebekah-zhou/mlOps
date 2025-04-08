@@ -9,6 +9,15 @@ stages:
       - data/pipeline.pkl
       - data/processed_train_data.csv
       - data/processed_test_data.csv
+
+  preprocess_yelp:
+    cmd: python src/preprocessing.py
+    deps:
+      - data/yelp_academic_dataset_business.json
+      - src/preprocessing.py
+    outs:
+      - data/processed_boba_yelp_data.csv
+
 params: 
       - features.chi2percentile
       - features.train_path

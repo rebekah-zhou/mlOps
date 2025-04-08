@@ -28,3 +28,19 @@ stages:
       hash: md5
       md5: adf63b6ce20f7ee74f63d5dabb325226
       size: 10829967
+  preprocess_yelp:
+    cmd: python src/preprocessing.py
+    deps:
+    - path: data/yelp_academic_dataset_business.json
+      hash: md5
+      md5: f992501bd77e167970fe6011b9e81573
+      size: 118863795
+    - path: src/preprocessing.py
+      hash: md5
+      md5: 93c3c105cc98a53e51885d8677560073
+      size: 2241
+    outs:
+    - path: data/processed_boba_yelp_data.csv
+      hash: md5
+      md5: 0bb434121ebba278af55299bd20d3a37
+      size: 415813
